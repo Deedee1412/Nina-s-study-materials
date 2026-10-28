@@ -2,102 +2,119 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nina's studiemateriaal</title>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #faf8f3;
-    --ink: #1f2328;
-    --soft: #575c63;
-    --rule: #e2ddd2;
-    --note: #f3efe6;
-    --c1: #b4532a;
-    --c2: #6b4c9a;
-    --c3: #2e7259;
-    --c4: #2c5d8f;
+    --bg: #fbfaf7;
+    --card: #fff;
+    --tx: #1d1d22;
+    --mu: #55555f;
+    --bd: #e3e0d8;
+    --ex: #fff6dd;
+    --on-a: #fff;
+    --c1: #1f8a5b; --t1: #eef7f1;
+    --c2: #7a4fd0; --t2: #f1ecfb;
+    --c3: #c2560f; --t3: #fdeee1;
+    --c4: #1d6fc4; --t4: #e5f0fb;
     --base: 19px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #1a1b1d;
-      --ink: #ecebe7;
-      --soft: #a9adb3;
-      --rule: #34363a;
-      --note: #232427;
-      --c1: #f0a27a;
-      --c2: #b9a1e6;
-      --c3: #7fcfae;
-      --c4: #8ab8ea;
+      --bg: #16161a;
+      --card: #202027;
+      --tx: #f1f0ec;
+      --mu: #b5b4bd;
+      --bd: #34343e;
+      --ex: #3a3320;
+      --on-a: #16161a;
+      --c1: #5fd6a0; --t1: #1b3328;
+      --c2: #b79cf5; --t2: #2b2442;
+      --c3: #f5a468; --t3: #3d2a1a;
+      --c4: #7db9f5; --t4: #1a2e45;
     }
   }
   html.big { --base: 22px; }
 
   * { box-sizing: border-box; }
-  html { font-size: var(--base); }
+  html { font-size: var(--base); -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--bg);
+    color: var(--tx);
     line-height: 1.7;
     letter-spacing: 0.01em;
     word-spacing: 0.06em;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   main {
     max-width: 700px;
     margin: 0 auto;
     padding: 0 20px 96px;
   }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--tx);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
 
   .topbar {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding-top: 28px;
-    font-size: 0.85rem;
-    color: var(--soft);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 24px;
+    font-size: 0.9rem;
+    color: var(--mu);
   }
   .size-btn {
     font-family: inherit;
-    font-size: 0.85rem;
-    background: none;
-    border: 0;
-    color: var(--soft);
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-height: 44px;
+    padding: 0 16px;
+    background: var(--card);
+    color: var(--tx);
+    border: 2px solid var(--bd);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 0;
   }
-  .size-btn:hover { color: var(--ink); }
+  .size-btn:hover { border-color: var(--tx); }
 
   h1 {
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
-    font-size: 2.6rem;
+    font-size: clamp(1.7rem, 7vw, 2.6rem);
+    hyphens: auto;
     line-height: 1.12;
     letter-spacing: -0.01em;
-    margin: 40px 0 14px;
+    margin: 32px 0 14px;
   }
   .intro {
-    color: var(--soft);
+    color: var(--mu);
     font-size: 1.05rem;
     max-width: 30em;
     margin: 0;
   }
 
-  /* Progress: four segments, one per topic */
   .progress {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin: 32px 0 8px;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 28px 0 8px;
     font-size: 0.9rem;
   }
   .segs { display: flex; gap: 6px; }
   .seg {
     width: 34px;
-    height: 8px;
-    border-radius: 2px;
-    background: var(--rule);
+    height: 10px;
+    border-radius: 3px;
+    background: var(--bd);
   }
   .seg.on:nth-child(1) { background: var(--c1); }
   .seg.on:nth-child(2) { background: var(--c2); }
@@ -108,18 +125,31 @@
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
     font-size: 1.35rem;
-    margin: 56px 0 4px;
+    margin: 48px 0 4px;
   }
-  .h2-sub { color: var(--soft); margin: 0 0 12px; font-size: 0.95rem; }
+  .h2-sub { color: var(--mu); margin: 0 0 14px; font-size: 0.95rem; }
 
-  /* Table of contents */
-  .toc { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  /* Topics: each one is a big clickable card */
+  .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .item {
     display: grid;
-    grid-template-columns: 3.2rem 1fr auto;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    background: var(--card);
+    border: 2px solid var(--bd);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .item:hover { border-color: var(--c); }
+  .item a {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr auto;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid var(--rule);
+    padding: 16px 18px;
+    color: inherit;
+    text-decoration: none;
+    min-height: 88px;
   }
   .item .n {
     font-family: Fraunces, Georgia, serif;
@@ -128,78 +158,106 @@
     line-height: 1;
     color: var(--c);
   }
-  .item a {
-    display: block;
-    padding: 20px 0;
-    color: inherit;
-    text-decoration: none;
-  }
-  .item a b {
+  .item b {
     display: block;
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.25;
   }
-  .item a span { color: var(--soft); font-size: 0.9rem; }
+  .item .desc { display: block; color: var(--mu); font-size: 0.9rem; }
+  .item .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--on-a);
+    background: var(--c);
+    border-radius: 8px;
+    padding: 6px 14px;
+    white-space: nowrap;
+  }
   .item a:hover b { color: var(--c); }
-  .i1 { --c: var(--c1); }
-  .i2 { --c: var(--c2); }
-  .i3 { --c: var(--c3); }
-  .i4 { --c: var(--c4); }
+  .i1 { --c: var(--c1); --t: var(--t1); }
+  .i2 { --c: var(--c2); --t: var(--t2); }
+  .i3 { --c: var(--c3); --t: var(--t3); }
+  .i4 { --c: var(--c4); --t: var(--t4); }
 
   .check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: inherit;
     font-size: 0.85rem;
     font-weight: 700;
-    background: none;
-    color: var(--soft);
-    border: 2px solid var(--rule);
-    border-radius: 6px;
-    padding: 6px 12px;
+    background: var(--t);
+    color: var(--tx);
+    border: 0;
+    border-left: 2px solid var(--bd);
+    padding: 0 18px;
     cursor: pointer;
   }
-  .check:hover { border-color: var(--ink); color: var(--ink); }
-  .item.is-done .check {
-    background: var(--c);
-    border-color: var(--c);
-    color: var(--paper);
+  .check .box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--c);
+    border-radius: 5px;
+    background: var(--card);
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    line-height: 1;
+    color: var(--on-a);
   }
-  .item.is-done .n::after { content: " \2713"; font-size: 1rem; }
+  .item.is-done .check .box { background: var(--c); }
+  .item.is-done .check .box::after { content: "\2713"; }
 
   /* Practice list */
-  .list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-  .list li { border-bottom: 1px solid var(--rule); }
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
   .list a {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 16px;
-    padding: 16px 0;
+    min-height: 64px;
+    padding: 12px 18px;
+    background: var(--card);
+    border: 2px solid var(--bd);
+    border-radius: 10px;
     color: inherit;
     text-decoration: none;
   }
-  .list a b { font-weight: 700; }
-  .list a span { color: var(--soft); font-size: 0.9rem; text-align: right; }
-  .list a:hover b { color: var(--c2); }
+  .list a:hover { border-color: var(--tx); }
+  .list b { display: block; }
+  .list .desc { display: block; color: var(--mu); font-size: 0.9rem; }
+  .list .arrow { font-size: 1.3rem; font-weight: 700; }
 
   .note {
-    background: var(--note);
-    border-radius: 6px;
+    background: var(--ex);
+    border-radius: 10px;
     padding: 16px 20px;
-    margin-top: 56px;
+    margin-top: 48px;
   }
   .note b { display: block; }
-  .note p { margin: 4px 0 0; color: var(--soft); }
+  .note p { margin: 4px 0 0; }
 
   @media (max-width: 540px) {
-    h1 { font-size: 2.1rem; margin-top: 28px; }
+    html { --base: 18px; }
+    html.big { --base: 21px; }
     main { padding: 0 16px 80px; }
-    .item { grid-template-columns: 2.4rem 1fr; }
-    .item .n { font-size: 1.6rem; }
-    .check { grid-column: 2; justify-self: start; margin: -8px 0 16px; }
-    .list a { flex-direction: column; gap: 0; }
-    .list a span { text-align: left; }
+    h1 { margin-top: 24px; }
+    .item { grid-template-columns: 1fr; }
+    .item a { grid-template-columns: 2.2rem 1fr; padding: 16px 16px 12px; min-height: 0; }
+    .item .n { font-size: 1.7rem; }
+    .item .go { grid-column: 2; justify-self: start; margin-top: 4px; }
+    .check {
+      border-left: 0;
+      border-top: 2px solid var(--bd);
+      min-height: 48px;
+      justify-content: flex-start;
+      padding: 0 16px;
+    }
   }
 </style>
 </head>
@@ -219,53 +277,65 @@
   </div>
 
   <h2>Onderwerpen</h2>
-  <p class="h2-sub">Lees ze in deze volgorde.</p>
+  <p class="h2-sub">Tik op een onderwerp om het te openen.</p>
   <ol class="toc">
     <li class="item i1" data-id="ontwikkeling">
-      <span class="n">1</span>
       <a href="Ontwikkeling%20van%20de%20mens_%20simpel%20uitgelegd.html">
-        <b>Ontwikkeling van de mens</b>
-        <span>Levensfasen, Piaget, Kohlberg, Erikson</span>
+        <span class="n">1</span>
+        <span>
+          <b>Ontwikkeling van de mens</b>
+          <span class="desc">Levensfasen, Piaget, Kohlberg, Erikson</span>
+        </span>
+        <span class="go">Openen &rarr;</span>
       </a>
-      <button class="check" type="button">Klaar?</button>
+      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
     </li>
     <li class="item i2" data-id="persoonlijkheid">
-      <span class="n">2</span>
       <a href="Persoonlijkheid%20en%20gedrag_%20simpel%20uitgelegd.html">
-        <b>Persoonlijkheid en gedrag</b>
-        <span>Identiteit, karakter, emoties, motivatie</span>
+        <span class="n">2</span>
+        <span>
+          <b>Persoonlijkheid en gedrag</b>
+          <span class="desc">Identiteit, karakter, emoties, motivatie</span>
+        </span>
+        <span class="go">Openen &rarr;</span>
       </a>
-      <button class="check" type="button">Klaar?</button>
+      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
     </li>
     <li class="item i3" data-id="socialisatie">
-      <span class="n">3</span>
       <a href="Socialisatie_%20simpel%20uitgelegd.html">
-        <b>Socialisatie</b>
-        <span>Cultuur, socialisatie, instituties</span>
+        <span class="n">3</span>
+        <span>
+          <b>Socialisatie</b>
+          <span class="desc">Cultuur, socialisatie, instituties</span>
+        </span>
+        <span class="go">Openen &rarr;</span>
       </a>
-      <button class="check" type="button">Klaar?</button>
+      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
     </li>
     <li class="item i4" data-id="structuren">
-      <span class="n">4</span>
       <a href="Sociale%20structuren_%20simpel%20uitgelegd.html">
-        <b>Sociale structuren</b>
-        <span>Groepen, rollen en status</span>
+        <span class="n">4</span>
+        <span>
+          <b>Sociale structuren</b>
+          <span class="desc">Groepen, rollen en status</span>
+        </span>
+        <span class="go">Openen &rarr;</span>
       </a>
-      <button class="check" type="button">Klaar?</button>
+      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
     </li>
   </ol>
 
   <h2>Oefenen</h2>
   <p class="h2-sub">Als je de onderwerpen gelezen hebt.</p>
   <ul class="list">
-    <li><a href="Flashcards_%20sociale%20en%20gedragswetenschappen.html"><b>Flashcards</b><span>Test jezelf, kaart voor kaart</span></a></li>
-    <li><a href="Vakfiche%202026%20en%202027_%20schema%E2%80%99s%20en%20oefenen.html"><b>Vakfiche 2026 en 2027</b><span>Schema's en oefenvragen</span></a></li>
-    <li><a href="schemas-sociale-gedragswetenschappen-2026-en-2027.pdf"><b>Schema's om te printen</b><span>PDF</span></a></li>
+    <li><a href="Flashcards_%20sociale%20en%20gedragswetenschappen.html"><span><b>Flashcards</b><span class="desc">Test jezelf, kaart voor kaart</span></span><span class="arrow">&rarr;</span></a></li>
+    <li><a href="Vakfiche%202026%20en%202027_%20schema%E2%80%99s%20en%20oefenen.html"><span><b>Vakfiche 2026 en 2027</b><span class="desc">Schema's en oefenvragen</span></span><span class="arrow">&rarr;</span></a></li>
+    <li><a href="schemas-sociale-gedragswetenschappen-2026-en-2027.pdf"><span><b>Schema's om te printen</b><span class="desc">PDF</span></span><span class="arrow">&rarr;</span></a></li>
   </ul>
 
   <div class="note">
     <b>Tip</b>
-    <p>Lees 20 minuten, neem dan 5 minuten pauze. Klik op "Klaar?" als je een onderwerp af hebt.</p>
+    <p>Lees 20 minuten, neem dan 5 minuten pauze. Vink "Klaar?" aan als je een onderwerp af hebt.</p>
   </div>
 </main>
 
@@ -289,9 +359,11 @@
     var count = 0;
     items.forEach(function (item, i) {
       var isDone = !!done[item.dataset.id];
+      var btn = item.querySelector(".check");
       item.classList.toggle("is-done", isDone);
       segs[i].classList.toggle("on", isDone);
-      item.querySelector(".check").textContent = isDone ? "Klaar" : "Klaar?";
+      btn.setAttribute("aria-pressed", isDone);
+      btn.querySelector(".lbl").textContent = isDone ? "Klaar" : "Klaar?";
       if (isDone) count++;
     });
     document.getElementById("progressText").textContent =
