@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vakfiche 2026 en 2027: schema’s en oefenen</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf7;--card:#fff;--tx:#1d1d22;--mu:#55555f;--bd:#e3e0d8;--ok:#1f8a5b;--okb:#e1f5ea;--no:#c6403a;--nob:#fde8e6;--tint:#f1efe9;
+--c1:#1f8a5b;--c2:#7a4fd0;--c3:#d2661a;--c4:#1d6fc4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16161a;--card:#202027;--tx:#f1f0ec;--mu:#b5b4bd;--bd:#34343e;--ok:#5fd6a0;--okb:#1b3328;--no:#ff8b82;--nob:#3f1f1d;--tint:#2a2a33;--c1:#5fd6a0;--c2:#b79cf5;--c3:#f5a468;--c4:#7db9f5}}
+:root[data-theme="dark"]{--bg:#16161a;--card:#202027;--tx:#f1f0ec;--mu:#b5b4bd;--bd:#34343e;--ok:#5fd6a0;--okb:#1b3328;--no:#ff8b82;--nob:#3f1f1d;--tint:#2a2a33;--c1:#5fd6a0;--c2:#b79cf5;--c3:#f5a468;--c4:#7db9f5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Lexend,Verdana,sans-serif;font-size:17px;line-height:1.7;letter-spacing:.02em}
+main{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+h1{font-size:1.55rem;margin:6px 0}
+h3{margin:22px 0 8px;font-size:1.1rem}
+.sub{color:var(--mu);margin:2px 0 12px}
+.score{font-weight:700;margin:0 0 8px}
+.bar{height:12px;border-radius:9px;background:var(--bd);overflow:hidden;margin-bottom:14px}
+.bar div{height:100%;width:0;background:var(--ok);transition:width .3s}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.tabs button{font:inherit;font-weight:600;border:3px solid var(--a);background:var(--card);color:var(--tx);border-radius:16px;padding:8px 6px;cursor:pointer}
+.tabs button span{display:block;font-size:1.7rem}
+.tabs button.on{background:var(--a);color:#fff}
+button:focus-visible{outline:3px solid var(--tx);outline-offset:2px}
+.top{border-top:6px solid var(--a);padding-top:4px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.c{background:var(--card);border:2px solid var(--bd);border-top:6px solid var(--a);border-radius:14px;padding:10px 12px}
+.c i{font-style:normal;font-size:1.8rem;display:block}.c b{display:block}.c p{margin:2px 0 0;color:var(--mu);font-size:.95rem}
+.fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fl span{background:var(--tint);border:2px solid var(--a);border-radius:999px;padding:5px 12px;font-weight:600}
+.fl em{font-style:normal;color:var(--mu)}
+.l{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.l li{background:var(--tint);border-left:6px solid var(--a);border-radius:10px;padding:7px 12px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs div{border:2px solid var(--bd);background:var(--card);border-radius:14px;padding:9px 12px}
+.vs .ok{border-color:var(--a)}
+@media(max-width:520px){.vs{grid-template-columns:1fr}}
+.q{background:var(--card);border:2px solid var(--bd);border-top:8px solid var(--a);border-radius:18px;padding:14px;margin-bottom:16px}
+.pic{font-size:3.6rem;line-height:1.2;text-align:center}
+.qt{font-weight:700;font-size:1.08rem;margin:4px 0 10px}
+.o{display:block;width:100%;text-align:left;font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.o.good{background:var(--okb);border-color:var(--ok);font-weight:600}
+.o.bad{background:var(--nob);border-color:var(--no)}
+.ex{margin-top:6px;padding:10px 12px;border-radius:12px;background:var(--okb);border-left:6px solid var(--ok)}
+.ex.w{background:var(--nob);border-left-color:var(--no)}
+.ex big{display:block;font-size:1.7rem}
+.reset{font:inherit;font-weight:600;border:2px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:8px 14px;cursor:pointer}
+.cmp{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:8px 12px;margin-bottom:14px}.cmp summary{font-weight:700;cursor:pointer}.cmp table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}.cmp th,.cmp td{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}.cmp th{background:var(--tint)}.cmp td.d{font-weight:700;color:var(--ok)}
+</style>
+</head>
+<body>
+<main>
+<h1>📘 Sociale en gedragswetenschappen 2026 en 2027</h1>
+<details open class="cmp"><summary>📊 Verschillen tussen 2026 en 2027</summary><table><tr><th>Onderdeel</th><th>Vakfiche 2026</th><th>Vakfiche 2027</th></tr><tr><td>Examenduur</td><td>120 minuten</td><td class="d">90 minuten</td></tr><tr><td>🌱🪞 Gedragswetenschappen</td><td>55%</td><td class="d">60%</td></tr><tr><td>👨‍👩‍👧🧱 Sociale wetenschappen</td><td>45%</td><td class="d">40%</td></tr><tr><td>Merton: eerste type</td><td>groep</td><td class="d">primaire groep</td></tr><tr><td>Instituties in tijd en ruimte</td><td>rol van gezin en school</td><td class="d">rol van sociale instituties</td></tr><tr><td>Volgorde van lijstjes</td><td>temperamenten, cultuuruitingen, statusfactoren</td><td class="d">zelfde lijstjes, alfabetisch geordend</td></tr><tr><td>Al de rest</td><td>zelfde leerstof</td><td class="d">zelfde leerstof</td></tr></table><p class="sub">Dit overzicht en de oefenvragen gelden voor beide jaren. Waar de jaren verschillen, staat dat bij het schema.</p></details>
+<p class="score" id="sc"></p>
+<div class="bar"><div id="pb"></div></div>
+<div class="tabs" id="tabs"></div>
+<div id="body"></div>
+<button class="reset" id="qb">📝 Toets: 10 vragen door elkaar</button> <button class="reset" id="rs">🔄 Opnieuw beginnen</button>
+<div id="quiz" style="display:none"></div>
+</main>
+<script>
+function C(a){return '<div class="g">'+a.map(function(x){return '<div class="c"><i>'+x[0]+'</i><b>'+x[1]+'</b><p>'+x[2]+'</p></div>'}).join('')+'</div>'}
+function S(a){return '<div class="fl">'+a.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>'}
+function F(a){return '<div class="fl">'+a.map(function(x){return '<span>'+x+'</span>'}).join('<em>➜</em>')+'</div>'}
+function L(a){return '<ul class="l">'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
+function V(a,b){return '<div class="vs"><div class="ok">'+a+'</div><div>'+b+'</div></div>'}
+function H(t){return '<h3>'+t+'</h3>'}
+var T=[
+{n:"Ontwikkeling van de mens",i:"🌱",c:"var(--c1)",
+s:H("Ontwikkeling = 3 dingen")+C([["📏","Groeien","je lichaam wordt groter"],["🍎","Rijpen","gaat vanzelf met de leeftijd"],["📚","Leren","door ervaring en oefenen"]])
++H("9 levensloopfasen")+S(["🤰 prenataal","👶 babytijd","🧸 peutertijd","🎨 kleutertijd","🎒 lagere school","🧑‍🎤 adolescentie","💼 vroege volw.","👨‍👩‍👧 midden volw.","🧓 late volw."])
++H("5 domeinen")+S(["💪 fysiek","🧠 cognitief","⚖️ moreel","❤️ socio-emotioneel","🪪 persoonlijkheid"])
++H("Piaget: hoe denk je?")+C([["👀","Sensomotorisch","objectpermanentie, persoonspermanentie, intentioneel handelen"],["🎭","Pre-operationeel","symbolisch denken, fantasie. Denkfouten: animisme, magisch denken, egocentrisme, centratie, niet-reversibel, geen conservatie"],["🧩","Concreet-operationeel","seriatie, classificatie, decentreren, reversibel denken, conservatie"],["🔬","Formeel-operationeel","abstract, logisch, hypothetisch en experimenteel denken"]])
++H("Kohlberg: moreel handelen")+F(["🚫 Pre-conventioneel","👥 Conventioneel","⚖️ Post-conventioneel"])
++H("Gehechtheid")+C([["😊","Veilige hechting","gevolgen: scheidingsangst en angst voor vreemden"],["😐","Angstig-vermijdend","negeert de verzorger"],["😠","Angstig-ambivalent","klampt zich vast en is boos"],["🌪️","Gedesorganiseerd","en gedesoriënteerd: verwarrend gedrag"]])
++H("Erikson: conflict en deugd")+L(["👶 Vertrouwen ↔ wantrouwen: <b>HOOP</b>","🧸 Autonomie ↔ twijfel en schaamte: <b>WIL</b>","🎨 Initiatief ↔ schuld: <b>DOELGERICHTHEID</b>","🎒 Handvaardigheid ↔ minderwaardigheid: <b>COMPETENTIE</b>","🧑‍🎤 Identiteit ↔ identiteitsverwarring: <b>TROUW</b>","💑 Intimiteit ↔ isolatie: <b>LIEFDE</b>","🤝 Generativiteit ↔ stagnatie: <b>ZORG</b>","🧓 Integriteit ↔ wanhoop en weerzin: <b>WIJSHEID</b>"]),
+q:[
+["🚲","Lars leert fietsen door elke dag te oefenen. Wat is dit?",["Groeien","Rijpen","Leren"],2,"Door oefening en ervaring leer je iets nieuws.","🚲 + 🔁 = 📚"],
+["🌧️","Een kleuter zegt: de boze regenwolk huilt. Welke denkfout?",["Animisme","Centratie","Egocentrisme"],0,"Animisme = denken dat dingen levend zijn en gevoelens hebben.","☁️ 😢"],
+["📊","Je kunt staafjes ordenen van klein naar groot (seriatie). Welk stadium?",["Pre-operationeel","Concreet-operationeel","Formeel-operationeel"],1,"Seriatie hoort bij systematisch denken in het concreet-operationeel stadium.","▪️ ▫️ ◼️ ⬛"],
+["🌐","Een 16-jarige denkt: wat als er geen geld bestond? Welk stadium?",["Sensomotorisch","Concreet-operationeel","Formeel-operationeel"],2,"Hypothetisch en abstract denken horen bij formeel-operationeel.","💭 ❓ 🔮"],
+["⚖️","Je doet iets niet omdat het tegen je eigen principes van rechtvaardigheid ingaat. Welk niveau?",["Pre-conventioneel","Conventioneel","Post-conventioneel"],2,"Post-conventioneel: eigen principes.","🚫 ➜ 👥 ➜ ⚖️"],
+["🧸","Een peuter speelt gewoon verder als mama terugkomt en kijkt haar niet aan. Welke gehechtheid?",["Veilige hechting","Angstig-vermijdend","Angstig-ambivalent"],1,"Vermijdend = doet alsof de verzorger er niet toe doet.","🧸 🙈 🤱"],
+["🧓","Een 70-jarige kijkt tevreden terug op zijn leven. Welk conflict en welke deugd?",["Integriteit ↔ wanhoop: wijsheid","Generativiteit ↔ stagnatie: zorg","Identiteit ↔ verwarring: trouw"],0,"Tevreden terugkijken = integriteit (opgelost conflict).","🧓 📖 😌"],
+["💪","Welke deugd hoort bij autonomie ↔ twijfel en schaamte?",["Wil","Hoop","Liefde"],0,"Een peuter wil zelf doen: zelf eten, zelf aankleden.","🧸 🥄 💪"],
+["🙈","Een baby zoekt het speelgoed dat je onder een doek hebt gelegd. Welk begrip?",["Objectpermanentie","Conservatie","Seriatie"],0,"Objectpermanentie = weten dat iets blijft bestaan als je het niet ziet.","🧸 ➜ 🧺 ➜ 🧸 ✅"],
+["🥛","Je snapt dat water niet meer wordt als je het in een hoger glas giet. Welk begrip?",["Conservatienotie","Animisme","Magisch denken"],0,"Conservatienotie hoort bij het concreet-operationeel stadium.","🥛 ➜ 🥃 = 🟰"]]},
+
+{n:"Persoonlijkheid en gedrag",i:"🪞",c:"var(--c2)",
+s:H("Persoonlijkheid = 3 elementen")+F(["🪪 Identiteit","🧱 Karakter","🌡️ Temperament"])
++H("Wat vormt je?")+S(["🧬 Nature","🏡 Nurture","🧭 Zelfbepaling"])
++H("Identiteit")+L(["🙋 <b>Persoonlijke identiteit</b>","🌍 <b>Sociale identiteit:</b> cultureel, relationeel, gender"])
++H("Karakter: Big Five")+L(["🎉 Extraversie ↔ introversie","🤗 Vriendelijkheid ↔ afstandelijkheid","🧘 Emotionele stabiliteit ↔ neuroticisme","📋 Zorgvuldigheid ↔ onzorgvuldigheid","🔭 Openheid ↔ geslotenheid voor ervaringen"])
++H("Temperament (Galenus)")+C([["🎉","Sanguinistisch","energiek, sociaal"],["🔥","Cholerisch","vastberaden, assertief"],["🌧️","Melancholisch","reflectief, gevoelig"],["🐢","Flegmatisch","geduldig, kalm"]])
++H("Zelfconcept (4 delen)")+C([["🪞","Zelfbeeld","positief, negatief, vertekend (onder- of overschatting), realistisch"],["❤️","Zelfwaardering","hoeveel waarde geef je jezelf"],["💪","Self-efficacy","geloof dat je iets kunt"],["👗","Body-image","hoe je naar je lichaam kijkt"]])
++H("Emoties")+V("<b>3 componenten</b><br>❤️‍🔥 fysiologisch<br>🏃 gedrag<br>🧠 mentaal","<b>3 functies</b><br>🔧 aanpassen<br>🗣️ communiceren<br>🚨 waarschuwen")
++H("Motivatie")+V("<b>❤️ Intrinsiek</b><br>uit plezier of interesse","<b>🏆 Extrinsiek</b><br>door beloning of straf van buiten")
++H("Doelgerichtheid")+L(["🏃 <b>Vermijdingsgedrag:</b> passief of actief","🎯 <b>Toenaderingsgedrag:</b> nastreven wat je niet hebt, of behouden wat je hebt"])
++H("Attributies: waaraan wijt je slagen of falen?")+V("<b>🧍 Intern / 🌦️ extern</b><br>ligt het aan jou of aan de omstandigheden?","<b>🎛️ Controleerbaar / 🎲 oncontroleerbaar</b><br>kun je het beïnvloeden of niet?"),
+q:[
+["💓","Voor een toets klopt je hart sneller. Welke component van emoties?",["Fysiologische component","Gedragscomponent","Mentale component"],0,"Je lichaam reageert: hartslag, zweten.","😰 ➜ 💓"],
+["🚨","Angst zegt je dat een situatie gevaarlijk is. Welke functie?",["Communiceren","Waarschuwen","Aanpassen"],1,"Emoties waarschuwen je voor gevaar.","😨 ➜ 🚨"],
+["💪","Je denkt: ik kan dit examen aan, want ik heb goed gestudeerd. Wat is dit?",["Zelfwaardering","Self-efficacy","Body-image"],1,"Self-efficacy = geloof dat jij iets kunt.","🙋 + 📚 = 💪"],
+["🪞","Sam is heel goed in wiskunde, maar vindt zichzelf slecht. Welk zelfbeeld?",["Realistisch","Vertekend (onderschatting)","Positief"],1,"Je ziet jezelf slechter dan het is.","🪞 ➜ 😞 (maar 🏆)"],
+["🧩","Je leert voor je plezier, niet voor punten. Welke motivatie?",["Intrinsiek","Extrinsiek","Geen motivatie"],0,"Intrinsiek = de drive komt van binnenuit.","❤️ ➜ 🧩"],
+["📉","Ik zakte omdat ik te weinig studeerde. Welke attributie?",["Extern en oncontroleerbaar","Intern en controleerbaar","Extern en controleerbaar"],1,"Het ligt aan jou (intern) en je kon het veranderen (controleerbaar).","🧍 + 🎛️"],
+["🏆","Je traint hard om een wedstrijd te winnen. Wat is dit?",["Toenaderingsgedrag","Vermijdingsgedrag","Een attributie"],0,"Je streeft iets na wat je nog niet hebt.","🏃 ➜ 🎯"],
+["📋","Noor maakt altijd een planning en houdt zich eraan. Welk Big Five-kenmerk?",["Zorgvuldigheid","Extraversie","Openheid"],0,"Georganiseerd en doelgericht = zorgvuldigheid.","📋 ✅"],
+["🌡️","Een kalm en geduldig persoon is volgens Galenus…",["Flegmatisch","Cholerisch","Sanguinistisch"],0,"Flegmatisch 🐢 = kalm. Cholerisch 🔥 = vastberaden.","🐢 😌"],
+["🏆","Je werkt hard voor een beloning van je ouders. Welke motivatie?",["Intrinsiek","Extrinsiek","Self-efficacy"],1,"De drive komt van buitenaf.","🏆 ➜ 💪"]]},
+
+{n:"Socialisatie",i:"👨‍👩‍👧",c:"var(--c3)",
+s:H("Cultuur: 7 uitingen")+S(["🧠 kennis","⚖️ waarden en normen","🎁 symbolen","🎊 rituelen","🍴 gebruiken en gewoonten","🗣️ taal","🎨 kunst"])
++H("Culturen vergelijken")+V("<b>🌍 Westers</b> ↔ niet-westers","<b>🏙️ Dominante cultuur</b> ↔ subcultuur (jongerenculturen)")
++H("Socialisatie")+F(["⚖️ waarden doorgeven","📏 normen doorgeven","🎁 andere uitingen doorgeven"])
++H("Belang")+V("<b>🙋 Voor het individu</b><br>aanpassen aan de omgeving (prosociaal of antisociaal gedrag)","<b>🌐 Voor de samenleving</b><br>de cultuur blijft bestaan")
++H("3 niveaus")+C([["🏠","Primair","in de eerste jaren: gezin en familie"],["🏫","Secundair","daarbuiten: school, peergroep, buurt, media, verenigingen"],["💼","Tertiair","later in je leven, bv. bij een nieuwe rol of groep"]])
++'<p class="sub">Controleer in je cursus welke instituties bij welk niveau horen. Boeken verschillen daarin.</p>'
++H("Instituties")+S(["🏠 gezin","👪 familie","👯 peergroep","🏫 school","🏘️ buurt","📺 (massa)media","🤝 verenigingen","⚖️ rechtssysteem","⛪ religieuze instituties"])
++H("3 vormen")+C([["🏡","Enculturatie","je eigen cultuur leren"],["🔀","Acculturatie","je aanpassen aan een andere cultuur"],["🔮","Anticiperende socialisatie","je voorbereiden op een toekomstige rol"]])+'<p class="sub">Ook belangrijk: hoe de rol van sociale instituties verandert in tijd en ruimte (2026: alleen gezin en school).</p>',
+q:[
+["💍","Een huwelijksceremonie is een voorbeeld van een…",["Ritueel","Symbool","Norm"],0,"Rituelen zijn handelingen of ceremonies met speciale betekenis.","💍 🎊"],
+["❓","Welke is GEEN cultuuruiting?",["Inkomen van je ouders","Taal","Rituelen"],0,"Cultuuruitingen: kennis, waarden en normen, symbolen, rituelen, gewoonten, taal, kunst.","🗣️ 🎊 🎨"],
+["🎧","Hiphopjongeren hebben eigen kleding, taal en muziek binnen de grote samenleving. Wat is dit?",["Dominante cultuur","Subcultuur (jongerencultuur)","Niet-westerse cultuur"],1,"Een subcultuur leeft binnen de dominante cultuur.","🏙️ ⊃ 🎧"],
+["👨‍👩‍👧","Een kind leert thuis de taal en gewoonten van zijn eigen cultuur. Welke vorm?",["Enculturatie","Acculturatie","Anticiperende socialisatie"],0,"Enculturatie = je eigen cultuur leren.","🏠 ➜ 🏡"],
+["🏫","Op school leer je samenwerken met klasgenoten. Welk niveau?",["Primaire socialisatie","Secundaire socialisatie","Tertiaire socialisatie"],1,"School is een secundaire socialisatie-instelling.","🏠 ➜ 🏫"],
+["✈️","Een gezin verhuist naar België en past zich aan onze gebruiken aan. Welke vorm?",["Enculturatie","Acculturatie","Anticiperende socialisatie"],1,"Je past je aan een andere cultuur aan.","🌍 ➜ 🔀 ➜ 🇧🇪"],
+["💼","Een leerling doet een proefdag in zijn toekomstige job om te weten wat verwacht wordt. Welke vorm?",["Acculturatie","Enculturatie","Anticiperende socialisatie"],2,"Je bereidt je voor op een rol die nog komt.","🎒 ➜ 🔮 ➜ 💼"],
+["🌐","Waarom is socialisatie belangrijk voor de samenleving?",["De cultuur blijft bestaan","Iedereen wordt gelijk","Er zijn geen normen meer"],0,"Door waarden en normen door te geven, leeft de cultuur voort.","👵 ➜ 👨 ➜ 👶"],
+["🤝","Welke is een voorbeeld van een secundaire socialisatie-instelling?",["Het gezin","De peergroep","Geen enkele"],1,"Peergroep, school, buurt en media horen bij secundair.","👯 🏫 🏘️"],
+["🌍","Westerse en niet-westerse culturen vergelijk je aan de hand van…",["Cultuuruitingen","Inkomen","Leeftijd"],0,"Je vergelijkt kennis, normen, symbolen, rituelen, taal, enzovoort.","🌍 ⚖️ 🌏"]]},
+
+{n:"Sociale structuren",i:"🧱",c:"var(--c4)",
+s:H("Soorten groepen")+V("<b>🏠 Primair</b> (hechte band) ↔ <b>🏢 secundair</b> (eerder zakelijk)","<b>📜 Formeel</b> (vaste regels) ↔ <b>🗣️ informeel</b> (ongeschreven)")
++H("Merton: 4 types")+C([["👥","Primaire groep","hechte band en regelmatig contact. Bv. gezin en hechte vrienden (2026: ‘groep’)"],["📣","Collectiviteit","verbondenheid zonder contact. Bv. fans van een club"],["🏷️","Sociale categorie","zelfde kenmerk, geen band. Bv. alle 16-jarigen"],["🚌","Samenzijn","tijdelijk bij elkaar. Bv. in de wachtzaal of bus"]])
++H("Positie, rol en status")+C([["📍","Sociale positie","je plaats in de samenleving. Bv. leerling, moeder"],["🎭","Sociale rol","wat van die positie verwacht wordt (rollenset en rolverwachtingen)"],["⭐","Sociale status","hoeveel aanzien de positie heeft"]])
++H("Hoe krijg je een positie?")+V("<b>🎁 Toegewezen</b> ↔ <b>🏅 verworven</b><br>(door geboorte, geslacht ↔ door eigen inzet)","<b>⏳ Tijdelijk</b> ↔ <b>♾️ levenslang</b><br>(leerling ↔ dochter)")
++H("Rollenconflict")+V("<b>🔁 Intern</b><br>botsende verwachtingen binnen één positie. Bv. een leerkracht moet streng én vriendelijk zijn","<b>↔️ Extern</b><br>botsende verwachtingen tussen twee posities. Bv. werknemer én ouder")
++'<p class="sub">Dit is de definitie die in de meeste handboeken staat. Check ze in je eigen cursus.</p>'
++H("Wat bepaalt je status?")+S(["💶 inkomen en vermogen","👷 beroep","🎓 opleiding","🤝 kenniskring","🌱 afkomst","⚧️ geslacht"])
++'<p class="sub">Je positie heeft ook invloed op je kansen in de samenleving.</p>',
+q:[
+["🚌","Mensen zitten kort samen in een wachtzaal, zonder band. Welk type van Merton?",["Primaire groep","Samenzijn","Sociale categorie"],1,"Samenzijn = tijdelijk bij elkaar zonder band.","🚌 🧍🧍🧍"],
+["📣","Fans van een voetbalclub kennen elkaar niet, maar voelen zich verbonden. Welk type?",["Collectiviteit","Primaire groep","Samenzijn"],0,"Verbondenheid zonder regelmatig contact.","⚽ 💛 💛 💛"],
+["🏷️","Alle 16-jarigen in België. Welk type?",["Primaire groep","Collectiviteit","Sociale categorie"],2,"Ze hebben één kenmerk gemeen, maar geen band.","1️⃣6️⃣ 🏷️"],
+["🏅","Marie wordt advocaat na jaren studeren. Welke positie?",["Toegewezen","Verworven","Levenslang"],1,"Ze heeft de positie door eigen inzet verworven.","🎓 ➜ ⚖️"],
+["👶","Je wordt geboren als meisje of jongen. Welke soort positie?",["Toegewezen","Verworven","Tijdelijk"],0,"Je kiest het niet zelf: toegewezen.","👶 🎁"],
+["🎒","De positie ‘leerling’ is…",["Levenslang","Tijdelijk","Altijd verworven"],1,"Je bent maar een tijd leerling.","🎒 ⏳"],
+["↔️","Een moeder moet kiezen tussen een vergadering en het schoolfeest van haar kind. Welk conflict?",["Intern rollenconflict","Extern rollenconflict","Geen conflict"],1,"Twee posities (werknemer en ouder) botsen.","💼 ⚡ 🏫"],
+["❓","Welke factor bepaalt de sociale status NIET?",["Beroep","Opleiding","Schoenmaat"],2,"Status: inkomen en vermogen, beroep, opleiding, kenniskring, afkomst, geslacht.","👷 🎓 💶"],
+["🏠","Een familie heeft sterke persoonlijke banden en veel contact. Welke groep?",["Primaire groep","Secundaire groep","Samenzijn"],0,"Primair = hechte band.","🏠 ❤️"],
+["🔁","Een leerkracht moet streng én vriendelijk zijn. Welk conflict?",["Intern rollenconflict","Extern rollenconflict","Sociale categorie"],0,"Botsende verwachtingen binnen één positie.","🎓 ⚡ 🎓"]]}
+];
+var cur=0,state={},total=0,order;
+T.forEach(function(t){total+=t.q.length});
+function sh(a){var r=a.map(function(x,i){return i}),j,k,t;for(j=r.length-1;j>0;j--){k=Math.floor(Math.random()*(j+1));t=r[j];r[j]=r[k];r[k]=t}return r}
+function init(){state={};order=T.map(function(t){return t.q.map(function(q){return sh(q[2])})})}
+function score(){var g=0,d=0;for(var k in state){d++;if(state[k].g)g++}
+document.getElementById("sc").textContent="Score: "+g+" goed van "+d+" beantwoord ("+total+" vragen)";
+document.getElementById("pb").style.width=(d/total*100)+"%"}
+function draw(){var h="";
+T.forEach(function(t,i){var d=0;t.q.forEach(function(_,j){if(state[i+"-"+j])d++});
+h+='<button style="--a:'+t.c+'" class="'+(i===cur?"on":"")+'" data-i="'+i+'"><span>'+t.i+'</span>'+t.n+' ('+d+'/'+t.q.length+')</button>'});
+var e=document.getElementById("tabs");e.innerHTML=h;
+[].forEach.call(e.children,function(b){b.onclick=function(){cur=+b.dataset.i;try{location.hash="t"+(cur+1)}catch(x){}draw();window.scrollTo(0,0)}});
+score();var t=T[cur];
+var o='<div class="top" style="--a:'+t.c+'"><h2>'+t.i+' '+t.n+'</h2>'+t.s+'<h3>🎯 Oefenvragen</h3><button class="reset" id="tq">📝 Toets alleen dit onderdeel (10 vragen)</button></div>';
+t.q.forEach(function(q,j){var key=cur+"-"+j,ans=state[key];
+o+='<div class="q" style="--a:'+t.c+'"><div class="pic">'+q[0]+'</div><div class="qt">'+q[1]+'</div>';
+order[cur][j].forEach(function(oi){var cl="o",p="";if(ans){if(oi===q[3]){cl+=" good";p="✅ "}else if(oi===ans.p){cl+=" bad";p="❌ "}}
+o+='<button class="'+cl+'" data-k="'+key+'" data-j="'+j+'" data-o="'+oi+'">'+p+q[2][oi]+'</button>'});
+if(ans)o+='<div class="ex'+(ans.g?"":" w")+'"><big>'+q[5]+'</big><b>'+(ans.g?"🎉 Goed!":"🤔 Bijna. Het groene antwoord is juist.")+'</b><br>'+q[4]+'</div>';
+o+='</div>'});
+document.getElementById("body").innerHTML=o;document.getElementById("tq").onclick=function(){QT=cur;startQ()};
+[].forEach.call(document.querySelectorAll(".o"),function(b){b.onclick=function(){var k=b.dataset.k;if(state[k])return;
+var q=T[cur].q[+b.dataset.j],p=+b.dataset.o;state[k]={p:p,g:p===q[3]};var y=window.scrollY;draw();window.scrollTo(0,y)}})}
+document.getElementById("rs").onclick=function(){init();draw();window.scrollTo(0,0)};
+var Q=[],qi=0,qs=0;
+function main(s){["tabs","body","sc","rs","qb"].forEach(function(id){document.getElementById(id).style.display=s});document.querySelector(".bar").style.display=s}
+var QT=-1;function startQ(){var all=[];T.forEach(function(t,i){if(QT>=0&&i!==QT)return;t.q.forEach(function(q,j){all.push([i,j])})});Q=sh(all).map(function(i){return all[i]}).slice(0,10);qi=0;qs=0;main("none");document.getElementById("quiz").style.display="block";window.scrollTo(0,0);nextQ()}
+function nextQ(){var z=document.getElementById("quiz");
+if(qi>=Q.length){var e=qs>=9?"🏆":qs>=7?"🎉":qs>=5?"👍":"💪";
+z.innerHTML='<div class="q" style="--a:var(--c1)"><div class="pic">'+e+'</div><div class="qt" style="text-align:center">Je score: '+qs+' van '+Q.length+'</div><p style="text-align:center">'+(qs>=7?"Top gedaan!":"Oefen nog even per onderdeel en probeer opnieuw.")+'</p><button class="o" id="again">🔁 Nog een toets</button><button class="o" id="back">⬅️ Terug naar oefenen</button></div>';
+document.getElementById("again").onclick=startQ;document.getElementById("back").onclick=function(){z.style.display="none";main("");draw()};return}
+var p=Q[qi],t=T[p[0]],q=t.q[p[1]],h='<div class="q" style="--a:'+t.c+'"><p class="score">Vraag '+(qi+1)+' van '+Q.length+' · '+t.i+' '+t.n+'</p><div class="pic">'+q[0]+'</div><div class="qt">'+q[1]+'</div>';
+sh(q[2]).forEach(function(oi){h+='<button class="o" data-o="'+oi+'">'+q[2][oi]+'</button>'});
+h+='<div id="qe"></div></div>';z.innerHTML=h;
+[].forEach.call(z.querySelectorAll(".o"),function(b){b.onclick=function(){var o=+b.dataset.o,g=o===q[3];if(g)qs++;
+[].forEach.call(z.querySelectorAll(".o"),function(x){x.disabled=true;if(+x.dataset.o===q[3])x.className="o good";else if(x===b)x.className="o bad"});
+document.getElementById("qe").innerHTML='<div class="ex'+(g?"":" w")+'"><big>'+q[5]+'</big><b>'+(g?"🎉 Goed!":"🤔 Bijna. Het groene antwoord is juist.")+'</b><br>'+q[4]+'</div><button class="o" id="nx" style="margin-top:10px;text-align:center;font-weight:700">'+(qi+1>=Q.length?"🏁 Bekijk je score":"➜ Volgende")+'</button>';
+document.getElementById("nx").onclick=function(){qi++;window.scrollTo(0,0);nextQ()}}})}
+document.getElementById("qb").onclick=function(){QT=-1;startQ()};
+var m=/^#t([1-4])$/.exec(location.hash);if(m)cur=+m[1]-1;
+init();draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flashcards: sociale en gedragswetenschappen</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f9fb;--card:#fff;--ink:#17323f;--mute:#4f6b79;--line:#c9dbe5;--a:#1480a8;--a2:#e8f3f8;--ok:#2e7d5b;--ok2:#e5f3ec}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b22;--card:#17262f;--ink:#e6f0f5;--mute:#9ab5c3;--line:#2d4553;--a:#58b8dc;--a2:#173544;--ok:#6cc79b;--ok2:#16352a}}
+:root[data-theme="dark"]{--bg:#0f1b22;--card:#17262f;--ink:#e6f0f5;--mute:#9ab5c3;--line:#2d4553;--a:#58b8dc;--a2:#173544;--ok:#6cc79b;--ok2:#16352a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+main{max-width:640px;margin:0 auto;padding:18px 16px 40px}
+h1{font-size:1.4rem;margin:0 0 .2em}
+.mute{color:var(--mute);font-size:.9rem}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:.8em 0;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--a);width:0;transition:width .2s}
+.card{min-height:260px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:1.2em;cursor:pointer;display:flex;flex-direction:column;justify-content:center;text-align:left;width:100%;color:inherit;font:inherit}
+.card.back{background:var(--ok2);border-color:var(--ok)}
+.card:focus-visible,button:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.tag{font-size:.85rem;color:var(--mute);margin-bottom:.6em}
+.q{font-size:1.1rem}.ans{font-weight:700;font-size:1.25rem;margin-bottom:.4em}
+.hint{margin-top:1em;font-size:.85rem;color:var(--mute)}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin:.8em 0}
+button{font:inherit;padding:.55em .9em;border-radius:8px;border:1px solid var(--a);background:var(--card);color:var(--ink);cursor:pointer;flex:1 1 auto}
+button.p{background:var(--a);color:#fff}
+button.ok{border-color:var(--ok)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+</style></head><body><main>
+<div class="top"><div><h1>Flashcards</h1><div class="mute">Sociale en gedragswetenschappen · 69 vragen</div></div><button id="sh" style="flex:0 0 auto">Schudden</button></div>
+<div class="bar"><i id="pb"></i></div>
+<div class="mute" id="st" aria-live="polite"></div>
+<button class="card" id="c" aria-label="Kaart omdraaien"></button>
+<div class="btns"><button id="pv">Vorige</button><button id="nx" class="p">Volgende</button></div>
+<div class="btns"><button id="ok" class="ok">Gekend ✓</button><button id="no">Nog oefenen</button><button id="ft">Alleen nog te oefenen kaarten</button></div>
+</main>
+<script>
+var D=[
+["Piaget","Een kleuter van 4 zegt: “De zon slaapt, want het is donker.” Welke denkfout is dit?","Animisme","Levenloze dingen krijgen levende eigenschappen. Pre-operationeel stadium."],
+["Erikson","Een 16-jarige weet niet wie hij is en past zich aan elke vriendengroep aan. Welk conflict en welke deugd?","Identiteit vs. identiteitsverwarring: TROUW","Adolescentie. Een opgelost conflict geeft de deugd TROUW."],
+["Kohlberg","Sam doet zijn huiswerk alleen om straf te vermijden. Welk stadium?","Pre-conventioneel","Moreel handelen uit angst voor straf of voor een beloning."],
+["Gehechtheid","Een peuter huilt hevig bij het afscheid van mama, is moeilijk te troosten en blijft boos bij haar terugkomst. Welk patroon?","Angstig-ambivalent","Het kind zoekt nabijheid en verzet zich tegelijk."],
+["Motivatie","Lena studeert enkel omdat haar ouders 50 euro beloven. Welke vorm?","Extrinsieke motivatie","De drijfveer komt van buiten (een beloning)."],
+["Attributie","Jonas zakt en zegt: “Ik had te weinig gestudeerd.” Welke attributie?","Intern en controleerbaar","De oorzaak ligt bij hemzelf en hij kan er iets aan doen."],
+["Sociale positie","Mila is student aan de hogeschool. Welk type sociale positie?","Verworven en tijdelijk","Ze heeft de positie zelf bereikt en ze duurt beperkt in tijd."],
+["Merton","Mensen die toevallig samen aan een bushalte wachten. Welke groep?","Samenzijn","Tijdelijke, toevallige groepering zonder echte band."],
+["Zelfconcept","Noor heeft een gezond gewicht, vindt zichzelf te dik en mijdt het zwembad. Welk onderdeel van het zelfconcept?","Body-image","Beeld van je eigen lichaam, hier vertekend (overschatting)."],
+["Zelfconcept","Ravi: “Die toets is moeilijk, maar als ik goed oefen, kan ik dat.” Welk begrip?","Self-efficacy","Geloof dat je een bepaalde taak kan uitvoeren."],
+["Emoties","Bij een presentatie krijgt Bram een rode kop en een bonzend hart. Welke component?","Fysiologische component","Lichamelijke reacties. Gedrag = gedragscomponent, gedachten en gevoel = mentale component."],
+["Emoties","Op een donkere straat voelt Lien angst en wordt alert voor gevaar. Welke functie?","Waarschuwen","Functies: aanpassen, communiceren, waarschuwen."],
+["Cultuur","Geef een voorbeeld van de cultuuruiting ‘symbolen’.","Bv. een regenboogvlag die staat voor diversiteit","Een symbool is een teken met een betekenis voor een groep."],
+["Cultuur","Een groep met eigen taal, kledij en muziek die afwijkt van wat gangbaar is. Wat is dit?","Subcultuur","Wijkt af van de dominante cultuur. Een jongerencultuur is vaak een voorbeeld."],
+["Socialisatie","Een baby leert van zijn ouders de eerste waarden en normen. Welk niveau?","Primaire socialisatie","Eerste levensjaren, vooral in het gezin."],
+["Socialisatie","Een gezin verhuist van Syrië naar België en leert de gebruiken van hier. Welke vorm?","Acculturatie","Aannemen van de cultuur van een nieuwe omgeving. Enculturatie = opgroeien in je eigen cultuur."],
+["Socialisatie","Een leerling loopt stage om zich voor te bereiden op haar toekomstig beroep. Welke vorm?","Anticiperende socialisatie","Voorbereiden op een rol die je later opneemt."],
+["Temperament","Jan is snel boos, ongeduldig en neemt graag de leiding. Welk temperament (Galenus)?","Cholerisch","Flegmatisch = rustig, melancholisch = bedachtzaam, sanguinistisch = vrolijk en sociaal."],
+["Big Five","Zoe plant alles, ruimt altijd op en komt haar afspraken na. Welke karaktertrek?","Zorgvuldigheid","Tegenpool: onzorgvuldigheid."],
+["Big Five","Tom is vaak angstig, snel overstuur en piekert veel. Welke karaktertrek?","Neuroticisme","Tegenpool: emotionele stabiliteit."],
+["Zelfbeeld","Ruben is een gemiddelde zwemmer, maar denkt dat hij de beste van de club is. Welk zelfbeeld?","Vertekend zelfbeeld (overschatting)","Het beeld klopt niet met de realiteit. Bij een correct beeld spreek je van een realistisch zelfbeeld."],
+["Doelgerichtheid","Kim blijft thuis van het feest omdat ze bang is dat ze niemand kent. Welk gedrag?","Passief vermijdingsgedrag","Ze ontwijkt de situatie. Bij actief vermijdingsgedrag onderneem je zelf iets om iets negatiefs te voorkomen."],
+["Doelgerichtheid","Ahmed traint elke week extra om zijn plaats in de basisploeg te behouden. Welk gedrag?","Toenaderingsgedrag: behouden wat je hebt","Alternatief: toenaderingsgedrag waarbij je nastreeft wat je nog niet hebt."],
+["Cultuur","Hoe noem je de cultuur die in een samenleving het meest verspreid is en de norm bepaalt?","Dominante cultuur","Daartegenover staan de subculturen."],
+["Groepen","Een vriendengroep die af en toe samen afspreekt, zonder vaste regels of structuur. Welke soort groep?","Informele groep","Tegenover de formele groep, met vaste regels, structuur en afgesproken taken."],
+["Sociale positie","Bij haar geboorte krijgt Fien de positie ‘dochter’. Welk type positie?","Toegewezen en levenslang","Je krijgt ze zonder eigen keuze en ze blijft een leven lang gelden."],
+["Sociale status","Welke factoren bepalen de sociale status van een positie?","Afkomst, beroep, geslacht, inkomen en vermogen, kenniskring en opleiding","Een sociale positie kan zo meer of minder status geven en beïnvloedt je kansen in de samenleving."],
+["Levensloopfasen","Dries is 9 jaar en zit in het vierde leerjaar. In welke levensloopfase zit hij?","Midden kindertijd: lagere schoolkindfase","Volgorde: prenataal, baby, peuter, kleuter, lagere schoolkind, adolescentie, vroege, midden en late volwassenheid."],
+["Ontwikkeling","Een baby begint vanzelf te kruipen zodra zijn spieren er klaar voor zijn. Groeien, rijpen of leren?","Rijpen","Aangeboren, biologisch proces. Leren vraagt oefening of ervaring, groeien is lichamelijke toename."],
+["Fysieke ontwikkeling","Je legt een vinger in de handpalm van een pasgeboren baby en het kind sluit automatisch zijn hand. Wat is dit?","Een reflex","Automatische reactie zonder bewuste controle (motorische ontwikkeling)."],
+["Fysieke ontwikkeling","Een kleuter leert zijn jas dichtknopen. Welk onderdeel van de motoriek?","Fijne motoriek","Kleine, precieze bewegingen. Grove motoriek = grote bewegingen zoals lopen en springen."],
+["Piaget","Een baby van 10 maanden zoekt het speelgoed dat onder een doek is verstopt. Welk kenmerk?","Objectpermanentie","Weten dat een voorwerp blijft bestaan als je het niet ziet. Sensomotorisch stadium."],
+["Piaget","Een kind van 5 houdt zijn handen voor zijn ogen en denkt dat niemand hem nog ziet. Welke denkfout?","Egocentrisme","Kan zich niet in het standpunt van een ander verplaatsen. Pre-operationeel stadium."],
+["Piaget","Pieter (8): “Het is nog evenveel water, het staat gewoon hoger.” Welk stadium?","Concreet-operationeel stadium","Hij heeft de conservatienotie. De denkfout ‘geen conservatienotie’ hoort bij het pre-operationeel stadium."],
+["Piaget","Een 15-jarige redeneert: “Als iedereen vegetarisch zou eten, wat zou er dan met het klimaat gebeuren?” Welk stadium?","Formeel-operationeel stadium","Abstract en hypothetisch denken (‘wat als…?’)."],
+["Sociale instituties","Tieners nemen elkaars kledingstijl en taalgebruik over. Welke institutie speelt de grootste rol?","Peergroep","Groep leeftijdsgenoten. Andere instituties: gezin, familie, school, buurt, (massa)media, verenigingen, rechtssysteem, religieuze instituties."],
+["Sociale instituties","Een rechter legt een straf op aan iemand die de wet overtrad. Welke institutie draagt bij aan socialisatie?","Rechtssysteem","Legt normen vast in wetten en bestraft overtredingen."],
+["Kohlberg","Emma doet haar huiswerk omdat een goede leerling dat hoort te doen en ze haar leerkracht niet wil teleurstellen. Welk stadium?","Conventioneel stadium","Handelen naar de verwachtingen en regels van anderen."],
+["Kohlberg","Aïsha weigert een regel te volgen omdat die volgens haar de mensenrechten schendt, ook al riskeert ze straf. Welk stadium?","Post-conventioneel stadium","Handelen vanuit eigen morele principes, ook tegen regels in."],
+["Kohlberg","Tim (5) deelt zijn snoep omdat de juf hem daarvoor een stickertje geeft. Welk stadium?","Pre-conventioneel stadium","Handelen om beloning te krijgen of straf te vermijden."],
+["Domeinen","Welke van deze is géén ontwikkelingsdomein: moreel, persoonlijkheid, spiritueel, socio-emotioneel?","Spirituele ontwikkeling","De domeinen zijn: fysiek, cognitief, moreel, socio-emotioneel en persoonlijkheid."],
+["Domeinen","Een jongen maakt een groeispurt door, schaamt zich voor zijn lichaam en trekt zich terug van vrienden. Welke domeinen beïnvloeden elkaar?","Fysiek en socio-emotioneel","Wisselwerking: de lichamelijke verandering beïnvloedt hoe hij zich voelt en met anderen omgaat."],
+["Sociale rol","Een leerkracht gedraagt zich anders tegenover leerlingen, collega’s en ouders. Hoe heet het geheel van rollen bij één positie?","Rollenset","Een sociale positie gaat samen met een rollenset en rolverwachtingen."],
+["Sociale rol","Van een brandweerman wordt verwacht dat hij kalm blijft bij gevaar. Welk begrip?","Rolverwachting","Wat anderen verwachten van iemand met een bepaalde positie."],
+["Rollenconflict","Een manager moet op een vergadering zijn, maar zijn kind is ziek. Wat ervaart hij?","Een rollenconflict","Verwachtingen van verschillende rollen zijn niet tegelijk te vervullen. Intern versus extern: zoek de omschrijving in je cursus."],
+["Socialisatie","Op school leert een kind samenwerken en de regels van het klasgebeuren volgen. Welk niveau?","Secundaire socialisatie","Buiten het gezin. Primair = vooral gezin, in de eerste levensjaren."],
+["Instituties","Vroeger zorgde vaak de grootmoeder voor de kleinkinderen, vandaag gaan veel kinderen naar de kinderopvang. Wat toont dit aan?","De rol van sociale instituties verandert in tijd (en ruimte)","Een taak verschuift van het gezin of de familie naar een andere institutie."],
+["Gehechtheid","Wat is gehechtheid?","De emotionele band tussen een kind en zijn verzorger","Ontwikkelt zich in de eerste levensjaren. Vormen: veilig of onveilig (angstig-vermijdend, angstig-ambivalent, gedesorganiseerd en gedesoriënteerd)."],
+["Gehechtheid","Mats is even van streek bij het afscheid, maar laat zich snel troosten en gaat weer spelen. Welk patroon?","Veilige hechting","Het kind vertrouwt erop dat de verzorger terugkomt."],
+["Gehechtheid","Een peuter lijkt niet te reageren als mama weggaat en negeert haar bij de terugkomst. Welk patroon?","Angstig-vermijdend","Het kind lijkt onbewogen en vermijdt contact."],
+["Gehechtheid","Een peuter loopt naar mama toe, blijft dan verward stilstaan en draait zich van haar af. Welk patroon?","Gedesorganiseerd en gedesoriënteerd","Tegenstrijdig, verward gedrag."],
+["Gehechtheid","Een baby van 9 maanden huilt als een onbekende hem oppakt, maar is rustig bij zijn ouders. Wat toont dit?","Angst voor vreemden, een gevolg van veilige hechting","Gevolgen van veilige hechting: scheidingsangst en angst voor vreemden."],
+["Identiteit","Fatima: “Ik ben creatief, nieuwsgierig en ik zet door.” Welke categorie?","Persoonlijke identiteit","Wie je zelf bent: eigenschappen en interesses."],
+["Identiteit","Yara viert thuis zowel het Suikerfeest als Kerstmis en voelt zich zowel Marokkaans als Belgisch. Welke categorie?","Culturele identiteit","Sociale identiteit: de cultuur(en) waartoe je je rekent."],
+["Identiteit","Lotte: “Ik ben de zus van Jan, de beste vriendin van Eva en de mama van Pieter.” Welke categorie?","Relationele identiteit","Sociale identiteit: wie je bent in relatie tot anderen."],
+["Identiteit","Sam: “Ik voel me geen jongen en geen meisje, ik voel me non-binair.” Welke categorie?","Genderidentiteit","Sociale identiteit: hoe je jezelf ervaart qua gender."],
+["Sociale instituties","Welke is géén sociale institutie uit de vakfiche: buurt, verenigingen, bank, religieuze instituties?","Bank","De instituties: gezin, familie, peergroep, school, buurt, (massa)media, verenigingen, rechtssysteem, religieuze instituties. Het niveau per institutie: check je cursus."],
+["Doelgerichtheid","Mo studeert extra hard om niet te blijven zitten. Welk soort?","Actief vermijdingsgedrag","Hij onderneemt iets om iets negatiefs te voorkomen. Passief = niets doen om het te vermijden."],
+["Doelgerichtheid","Lotte gaat twee keer per week lopen om een betere conditie te krijgen. Welk soort?","Toenaderingsgedrag: nastreven wat je niet hebt","Ze wil iets bereiken dat ze nog niet heeft. Behouden = iets houden wat je al hebt."],
+["Fysieke ontwikkeling","Bij een pasgeboren baby is het hoofd groot in verhouding tot de rest van het lichaam. Welk onderdeel?","Lichaamsverhoudingen","Onderdeel van de lichamelijke ontwikkeling, naast lengte en gewicht."],
+["Fysieke ontwikkeling","Een peuter van 14 maanden zet zijn eerste stapjes. Welk onderdeel van de motoriek?","Grove motoriek","Grote bewegingen van het hele lichaam. Fijne motoriek = kleine bewegingen met handen en vingers."],
+["Fysieke ontwikkeling","Een baby ziet een rammelaar en grijpt er gericht naar. Welke ontwikkeling?","Sensomotorische ontwikkeling","Zintuigen en beweging werken samen (oog en hand)."],
+["Fysieke ontwikkeling","Een 80-jarige man hoort steeds minder goed. Welk onderdeel van de fysieke ontwikkeling?","Sensorische ontwikkeling","Zintuigen: zicht en gehoor kunnen in de late volwassenheid achteruitgaan."],
+["Fysieke ontwikkeling","Een tiener groeit in één jaar 8 centimeter. Welk onderdeel?","Lichamelijke ontwikkeling (lengte)","Groeispurt, vooral in de adolescentie."],
+["Emoties","Na een ruzie voelt Sara zich verdrietig, trekt zich terug en slaat de deur dicht. Welke component is dat zichtbare gedrag?","Gedragscomponent","Wat iemand doet. Fysiologisch = lichaamsreactie, mentaal = gedachten en gevoel."],
+["Emoties","Voor een toets denkt Noor: “Ik ga dit nooit halen” en voelt zich angstig. Welke component?","Mentale component","Gedachten en subjectief gevoel."],
+["Emoties","Jonas fronst zijn wenkbrauwen zodat zijn vriend ziet dat hij boos is. Welke functie?","Communiceren","Functies van emoties: aanpassen, communiceren, waarschuwen."],
+["Cultuur","In België geef je een hand om te groeten, in Japan buig je. Welke cultuuruiting vergelijk je?","Gebruiken en gewoontes","Alle cultuuruitingen: gebruiken en gewoontes, kennis, kunstuitingen, rituelen, symbolen, taal, waarden en normen."],
+["Cultuur","Een communiefeest is een voorbeeld van welke cultuuruiting?","Ritueel","Een vaste handeling met een betekenis, vaak bij een belangrijk levensmoment."]
+];
+var deck=D.map(function(_,i){return i}),i=0,back=false,known={},only=false;
+var c=document.getElementById("c");
+function order(){return only?deck.filter(function(k){return !known[k]}):deck}
+function draw(){
+ var o=order();
+ if(!o.length){c.className="card";c.innerHTML='<div class="ans">Alles gekend!</div><div class="q">Klik op “Alleen nog te oefenen kaarten” om terug alle kaarten te zien.</div>';upd(0);return}
+ if(i>=o.length)i=0;if(i<0)i=o.length-1;
+ var d=D[o[i]];c.className="card"+(back?" back":"");
+ c.innerHTML=back?'<div class="tag">'+d[0]+' · antwoord</div><div class="ans">'+d[2]+'</div><div class="q">'+d[3]+'</div><div class="hint">Klik om terug te draaien</div>':'<div class="tag">'+d[0]+' · vraag '+(i+1)+' van '+o.length+'</div><div class="q">'+d[1]+'</div><div class="hint">Klik om het antwoord te zien</div>';
+ upd(o.length)}
+function upd(n){var k=Object.keys(known).length;document.getElementById("pb").style.width=(k/D.length*100)+"%";document.getElementById("st").textContent=k+" van "+D.length+" gekend"+(only?" · filter: enkel nog te oefenen":"")}
+function go(s){i+=s;back=false;draw()}
+function mark(v){var o=order();if(!o.length)return;if(v)known[o[i]]=1;else delete known[o[i]];back=false;if(only&&v){if(i>=order().length)i=0}else i++;draw()}
+c.onclick=function(){if(order().length){back=!back;draw()}};
+document.getElementById("nx").onclick=function(){go(1)};
+document.getElementById("pv").onclick=function(){go(-1)};
+document.getElementById("ok").onclick=function(){mark(true)};
+document.getElementById("no").onclick=function(){mark(false)};
+document.getElementById("ft").onclick=function(){only=!only;i=0;back=false;this.textContent=only?"Alle kaarten tonen":"Alleen nog te oefenen kaarten";draw()};
+document.getElementById("sh").onclick=function(){for(var a=deck.length-1;a>0;a--){var b=Math.floor(Math.random()*(a+1)),t=deck[a];deck[a]=deck[b];deck[b]=t}i=0;back=false;draw()};
+document.addEventListener("keydown",function(e){if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1);else if(e.key===" "&&e.target===document.body){e.preventDefault();c.click()}});
+draw();
+</script></body></html>
