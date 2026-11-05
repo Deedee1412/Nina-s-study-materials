@@ -14,10 +14,7 @@
     --bd: #e3e0d8;
     --ex: #fff6dd;
     --on-a: #fff;
-    --c1: #1f8a5b; --t1: #eef7f1;
-    --c2: #7a4fd0; --t2: #f1ecfb;
-    --c3: #c2560f; --t3: #fdeee1;
-    --c4: #1d6fc4; --t4: #e5f0fb;
+    --a: #1f8a5b;
     --base: 19px;
   }
   @media (prefers-color-scheme: dark) {
@@ -29,10 +26,7 @@
       --bd: #34343e;
       --ex: #3a3320;
       --on-a: #16161a;
-      --c1: #5fd6a0; --t1: #1b3328;
-      --c2: #b79cf5; --t2: #2b2442;
-      --c3: #f5a468; --t3: #3d2a1a;
-      --c4: #7db9f5; --t4: #1a2e45;
+      --a: #5fd6a0;
     }
   }
   html.big { --base: 22px; }
@@ -63,13 +57,8 @@
 
   .topbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: flex-end;
     padding-top: 24px;
-    font-size: 0.9rem;
-    color: var(--mu);
   }
   .size-btn {
     font-family: inherit;
@@ -88,11 +77,9 @@
   h1 {
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.7rem, 7vw, 2.6rem);
-    hyphens: auto;
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
     line-height: 1.12;
-    letter-spacing: -0.01em;
-    margin: 32px 0 14px;
+    margin: 24px 0 12px;
   }
   .intro {
     color: var(--mu);
@@ -100,249 +87,110 @@
     max-width: 30em;
     margin: 0;
   }
-
-  .progress {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin: 28px 0 8px;
-    font-size: 0.9rem;
-  }
-  .segs { display: flex; gap: 6px; }
-  .seg {
-    width: 34px;
-    height: 10px;
-    border-radius: 3px;
-    background: var(--bd);
-  }
-  .seg.on:nth-child(1) { background: var(--c1); }
-  .seg.on:nth-child(2) { background: var(--c2); }
-  .seg.on:nth-child(3) { background: var(--c3); }
-  .seg.on:nth-child(4) { background: var(--c4); }
-
   h2 {
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
     font-size: 1.35rem;
-    margin: 48px 0 4px;
+    margin: 44px 0 14px;
   }
-  .h2-sub { color: var(--mu); margin: 0 0 14px; font-size: 0.95rem; }
 
-  /* Topics: each one is a big clickable card */
-  .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .item {
+  /* Vakken */
+  .vakken { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .vak a {
     display: grid;
     grid-template-columns: 1fr auto;
-    align-items: stretch;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 20px;
     background: var(--card);
     border: 2px solid var(--bd);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .item:hover { border-color: var(--c); }
-  .item a {
-    display: grid;
-    grid-template-columns: 2.6rem 1fr auto;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 18px;
+    border-radius: 12px;
     color: inherit;
     text-decoration: none;
-    min-height: 88px;
   }
-  .item .n {
-    font-family: Fraunces, Georgia, serif;
-    font-weight: 600;
-    font-size: 2rem;
-    line-height: 1;
-    color: var(--c);
-  }
-  .item b {
+  .vak a:hover { border-color: var(--c, var(--a)); }
+  .vak b {
     display: block;
     font-family: Fraunces, Georgia, serif;
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     line-height: 1.25;
   }
-  .item .desc { display: block; color: var(--mu); font-size: 0.9rem; }
-  .item .go {
+  .vak .desc { display: block; color: var(--mu); font-size: 0.9rem; margin-top: 4px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 6px;
+    background: var(--bg);
+    border: 1px solid var(--bd);
+  }
+  .go {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
     font-weight: 700;
     font-size: 0.9rem;
     color: var(--on-a);
-    background: var(--c);
+    background: var(--c, var(--a));
     border-radius: 8px;
-    padding: 6px 14px;
+    padding: 8px 16px;
     white-space: nowrap;
   }
-  .item a:hover b { color: var(--c); }
-  .i1 { --c: var(--c1); --t: var(--t1); }
-  .i2 { --c: var(--c2); --t: var(--t2); }
-  .i3 { --c: var(--c3); --t: var(--t3); }
-  .i4 { --c: var(--c4); --t: var(--t4); }
 
-  .check {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 700;
-    background: var(--t);
-    color: var(--tx);
-    border: 0;
-    border-left: 2px solid var(--bd);
-    padding: 0 18px;
-    cursor: pointer;
+  .soon {
+    border: 2px dashed var(--bd);
+    border-radius: 12px;
+    padding: 18px 20px;
+    color: var(--mu);
+    font-size: 0.95rem;
   }
-  .check .box {
-    width: 22px;
-    height: 22px;
-    border: 2px solid var(--c);
-    border-radius: 5px;
-    background: var(--card);
-    display: grid;
-    place-items: center;
-    font-size: 0.9rem;
-    line-height: 1;
-    color: var(--on-a);
-  }
-  .item.is-done .check .box { background: var(--c); }
-  .item.is-done .check .box::after { content: "\2713"; }
-
-  /* Practice list */
-  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    min-height: 64px;
-    padding: 12px 18px;
-    background: var(--card);
-    border: 2px solid var(--bd);
-    border-radius: 10px;
-    color: inherit;
-    text-decoration: none;
-  }
-  .list a:hover { border-color: var(--tx); }
-  .list b { display: block; }
-  .list .desc { display: block; color: var(--mu); font-size: 0.9rem; }
-  .list .arrow { font-size: 1.3rem; font-weight: 700; }
-
-  .note {
-    background: var(--ex);
-    border-radius: 10px;
-    padding: 16px 20px;
-    margin-top: 48px;
-  }
-  .note b { display: block; }
-  .note p { margin: 4px 0 0; }
+  .soon b { color: var(--tx); display: block; }
 
   @media (max-width: 540px) {
     html { --base: 18px; }
     html.big { --base: 21px; }
     main { padding: 0 16px 80px; }
-    h1 { margin-top: 24px; }
-    .item { grid-template-columns: 1fr; }
-    .item a { grid-template-columns: 2.2rem 1fr; padding: 16px 16px 12px; min-height: 0; }
-    .item .n { font-size: 1.7rem; }
-    .item .go { grid-column: 2; justify-self: start; margin-top: 4px; }
-    .check {
-      border-left: 0;
-      border-top: 2px solid var(--bd);
-      min-height: 48px;
-      justify-content: flex-start;
-      padding: 0 16px;
-    }
+    .vak a { grid-template-columns: 1fr; }
+    .go { justify-self: start; }
   }
 </style>
 </head>
 <body>
 <main>
   <div class="topbar">
-    <span>Studiemateriaal van Nina</span>
     <button class="size-btn" id="sizeBtn" type="button" aria-pressed="false">Tekst groter</button>
   </div>
 
-  <h1>Sociale en gedragswetenschappen</h1>
-  <p class="intro">Begin bij onderwerp 1 en werk zo naar beneden. Eén onderwerp per keer is genoeg.</p>
+  <h1>Nina's studiemateriaal</h1>
+  <p class="intro">Kies een vak. Per vak vind je korte uitleg, audio om naar te luisteren en oefenvragen.</p>
 
-  <div class="progress" aria-live="polite">
-    <div class="segs"><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
-    <span id="progressText">0 van 4 klaar</span>
-  </div>
-
-  <h2>Onderwerpen</h2>
-  <p class="h2-sub">Tik op een onderwerp om het te openen.</p>
-  <ol class="toc">
-    <li class="item i1" data-id="ontwikkeling">
-      <a href="Ontwikkeling%20van%20de%20mens_%20simpel%20uitgelegd.html">
-        <span class="n">1</span>
+  <h2>Vakken</h2>
+  <!--
+    NIEUW VAK TOEVOEGEN: kopieer het hele <li class="vak">...</li> blok hieronder,
+    plak het eronder en pas de map (href), de naam en de beschrijving aan.
+  -->
+  <ul class="vakken">
+    <li class="vak" style="--c: var(--a)">
+      <a href="sociale-en-gedragswetenschappen/index.html">
         <span>
-          <b>Ontwikkeling van de mens</b>
-          <span class="desc">Levensfasen, Piaget, Kohlberg, Erikson. Met audio.</span>
+          <b>Sociale en gedragswetenschappen</b>
+          <span class="desc">Ontwikkeling, persoonlijkheid, socialisatie en sociale structuren</span>
+          <span class="tags"><span class="tag">4 onderwerpen</span><span class="tag">Audio</span><span class="tag">Flashcards</span><span class="tag">Oefenvragen</span></span>
         </span>
         <span class="go">Openen &rarr;</span>
       </a>
-      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
     </li>
-    <li class="item i2" data-id="persoonlijkheid">
-      <a href="Persoonlijkheid%20en%20gedrag_%20simpel%20uitgelegd.html">
-        <span class="n">2</span>
-        <span>
-          <b>Persoonlijkheid en gedrag</b>
-          <span class="desc">Identiteit, karakter, emoties, motivatie. Met audio.</span>
-        </span>
-        <span class="go">Openen &rarr;</span>
-      </a>
-      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
-    </li>
-    <li class="item i3" data-id="socialisatie">
-      <a href="Socialisatie_%20simpel%20uitgelegd.html">
-        <span class="n">3</span>
-        <span>
-          <b>Socialisatie</b>
-          <span class="desc">Cultuur, socialisatie, instituties. Met audio.</span>
-        </span>
-        <span class="go">Openen &rarr;</span>
-      </a>
-      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
-    </li>
-    <li class="item i4" data-id="structuren">
-      <a href="Sociale%20structuren_%20simpel%20uitgelegd.html">
-        <span class="n">4</span>
-        <span>
-          <b>Sociale structuren</b>
-          <span class="desc">Groepen, rollen en status. Met audio.</span>
-        </span>
-        <span class="go">Openen &rarr;</span>
-      </a>
-      <button class="check" type="button" aria-pressed="false"><span class="box"></span><span class="lbl">Klaar?</span></button>
-    </li>
-  </ol>
-
-  <h2>Oefenen</h2>
-  <p class="h2-sub">Als je de onderwerpen gelezen hebt.</p>
-  <ul class="list">
-    <li><a href="Flashcards_%20sociale%20en%20gedragswetenschappen.html"><span><b>Flashcards</b><span class="desc">Test jezelf, kaart voor kaart</span></span><span class="arrow">&rarr;</span></a></li>
-    <li><a href="Vakfiche%202026%20en%202027_%20schema%E2%80%99s%20en%20oefenen.html"><span><b>Vakfiche 2026 en 2027</b><span class="desc">Schema's en oefenvragen</span></span><span class="arrow">&rarr;</span></a></li>
-    <li><a href="schemas-sociale-gedragswetenschappen-2026-en-2027.pdf"><span><b>Schema's om te printen</b><span class="desc">PDF</span></span><span class="arrow">&rarr;</span></a></li>
   </ul>
 
-  <div class="note">
-    <b>Tip</b>
-    <p>Lees 20 minuten, neem dan 5 minuten pauze. Vink "Klaar?" aan als je een onderwerp af hebt.</p>
+  <h2>Binnenkort</h2>
+  <div class="soon">
+    <b>Er komen meer vakken bij.</b>
+    Nieuwe vakken komen hier te staan zodra ze klaar zijn.
   </div>
 </main>
 
 <script>
-  var KEY_DONE = "nina-study-done";
-  var KEY_BIG = "nina-study-big";
-
   function load(key, fallback) {
     try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
     catch (e) { return fallback; }
@@ -350,49 +198,19 @@
   function save(key, value) {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
   }
-
-  var done = load(KEY_DONE, {});
-  var items = document.querySelectorAll(".item");
-  var segs = document.querySelectorAll(".seg");
-
-  function render() {
-    var count = 0;
-    items.forEach(function (item, i) {
-      var isDone = !!done[item.dataset.id];
-      var btn = item.querySelector(".check");
-      item.classList.toggle("is-done", isDone);
-      segs[i].classList.toggle("on", isDone);
-      btn.setAttribute("aria-pressed", isDone);
-      btn.querySelector(".lbl").textContent = isDone ? "Klaar" : "Klaar?";
-      if (isDone) count++;
-    });
-    document.getElementById("progressText").textContent =
-      count === items.length ? "Alles klaar, goed gedaan!" : count + " van " + items.length + " klaar";
-  }
-
-  items.forEach(function (item) {
-    item.querySelector(".check").addEventListener("click", function () {
-      done[item.dataset.id] = !done[item.dataset.id];
-      save(KEY_DONE, done);
-      render();
-    });
-  });
-
   var sizeBtn = document.getElementById("sizeBtn");
   function applySize(big) {
     document.documentElement.classList.toggle("big", big);
     sizeBtn.textContent = big ? "Tekst kleiner" : "Tekst groter";
     sizeBtn.setAttribute("aria-pressed", big);
   }
-  var big = load(KEY_BIG, false);
+  var big = load("nina-study-big", false);
   applySize(big);
   sizeBtn.addEventListener("click", function () {
     big = !big;
-    save(KEY_BIG, big);
+    save("nina-study-big", big);
     applySize(big);
   });
-
-  render();
 </script>
 </body>
 </html>
