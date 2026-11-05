@@ -93,6 +93,7 @@ a.btn:hover{filter:brightness(1.08)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<link rel="stylesheet" href="luisteren.css">
 </head>
 <body>
 <main>
@@ -101,8 +102,26 @@ a.btn:hover{filter:brightness(1.08)}
 
 <h1>Ontwikkeling van de mens</h1>
 <p class="sub">Simpel uitgelegd. Korte stukjes. Bij elk idee een voorbeeld. Je kunt per stukje stoppen en later verdergaan.</p>
+<section class="listen" id="luister">
+<h2>Luisteren</h2>
+<p class="listen-sub">11 korte blokken, samen ongeveer 25 minuten. Luister elk blok 3 keer, op verschillende dagen. De bolletjes tellen mee.</p>
+<ol class="tracks">
+<li><a href="Blok%201.1%20Wat%20is%20ontwikkeling.mp3" data-dur="1:23">Wat is ontwikkeling?</a></li>
+<li><a href="Blok%201.2%20De%20ontwikkelingsdomeinen.mp3" data-dur="2:08">De ontwikkelingsdomeinen</a></li>
+<li><a href="Blok%201.3%20De%20levensloopfasen.mp3" data-dur="2:33">De levensloopfasen</a></li>
+<li><a href="Blok%201.4%20Wat%20beinvloedt%20ontwikkeling.mp3" data-dur="1:54">Wat beïnvloedt ontwikkeling?</a></li>
+<li><a href="Blok%201.5%20Piaget%20en%20de%20cognitieve%20ontwikkeling.mp3" data-dur="3:53">Piaget en de cognitieve ontwikkeling</a></li>
+<li><a href="Blok%201.6%20Erikson%20en%20de%20socio-emotionele%20ontwikkeling.mp3" data-dur="2:59">Erikson en de socio-emotionele ontwikkeling</a></li>
+<li><a href="Blok%201.7%20Gehechtheid.mp3" data-dur="2:59">Gehechtheid</a></li>
+<li><a href="Blok%201.8%20Kohlberg%20en%20de%20morele%20ontwikkeling.mp3" data-dur="1:48">Kohlberg en de morele ontwikkeling</a></li>
+<li><a href="Blok%201.9%20Identiteitsvorming%20in%20de%20adolescentie.mp3" data-dur="1:36">Identiteitsvorming in de adolescentie</a></li>
+<li><a href="Blok%201.10%20Grote%20herhaling.mp3" data-dur="1:22">Grote herhaling</a></li>
+<li><a href="Blok%201.11%20Zelftest%20voor%20luisteraars.mp3" data-dur="2:26">Zelftest voor luisteraars</a></li>
+</ol>
+<p class="listen-foot">Liever meelezen? <a href="Audio-studiegids%201.%20Ontwikkeling%20van%20de%20mens.pdf">Open de audiogids als PDF</a>.</p>
+</section>
 <p class="navlabel">Spring naar een stuk:</p>
-<div class="navwrap"><div class="nav"><a href="#a">1 Wat is het?</a><a href="#b">2 Wat beïnvloedt je?</a><a href="#c">3 Levensfasen</a><a href="#d">4 Domeinen</a><a href="#e">5 Piaget</a><a href="#f">6 Kohlberg</a><a href="#g">7 Gehechtheid</a><a href="#h">8 Erikson</a><a href="#i">9 Examentips</a></div></div>
+<div class="navwrap"><div class="nav"><a href="#luister">Luisteren</a><a href="#a">1 Wat is het?</a><a href="#b">2 Wat beïnvloedt je?</a><a href="#c">3 Levensfasen</a><a href="#d">4 Domeinen</a><a href="#e">5 Piaget</a><a href="#f">6 Kohlberg</a><a href="#g">7 Gehechtheid</a><a href="#h">8 Erikson</a><a href="#i">9 Examentips</a></div></div>
 
 <section id="a">
 <h2>1. Wat is ontwikkeling?</h2>
@@ -225,5 +244,6 @@ function upd(){
 window.addEventListener('scroll',upd,{passive:true});upd();
 })();
 </script>
+<script src="luisteren.js"></script>
 </body>
 </html>

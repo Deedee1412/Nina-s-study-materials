@@ -1,0 +1,182 @@
+/* Audiospeler voor de onderwerppagina's.
+   Gebruikt de kleuren van de pagina zelf (--a, --tint, --bd, --card, --tx, --mu). */
+
+.listen {
+  background: var(--card);
+  border: 2px solid var(--bd);
+  border-radius: 10px;
+  padding: 18px 18px 8px;
+  margin: 28px 0 0;
+}
+.listen h2 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.listen .listen-sub {
+  color: var(--mu);
+  font-size: 0.9rem;
+  margin: 2px 0 14px;
+}
+
+/* De speler bovenaan */
+.player {
+  background: var(--tint);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.player-now {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mu);
+}
+.player-title {
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 2px 0 10px;
+}
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.player button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+}
+.p-play {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--a);
+  color: var(--on-a, #fff);
+  display: grid;
+  place-items: center;
+}
+.p-play svg { width: 22px; height: 22px; fill: currentColor; }
+.p-bar {
+  flex: 1;
+  min-width: 0;
+}
+.p-seek {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--a);
+  height: 28px;
+  cursor: pointer;
+}
+.p-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--mu);
+  font-variant-numeric: tabular-nums;
+}
+.player-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.player-tools button {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--tx);
+  border: 2px solid var(--bd);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.player-tools button:hover { border-color: var(--a); }
+.player-tools button:disabled { opacity: 0.4; cursor: default; }
+.player-tools .p-next.ready {
+  background: var(--a);
+  border-color: var(--a);
+  color: var(--on-a, #fff);
+}
+.p-done {
+  display: none;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+.p-done.show { display: block; }
+
+.tracks-toggle {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 0 0 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--tx);
+  background: var(--card);
+  border: 2px solid var(--bd);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tracks-toggle:hover { border-color: var(--a); }
+.tracks[hidden] { display: none; }
+
+/* De lijst met blokken */
+.tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tracks li { border-top: 1px solid var(--bd); }
+.tracks a {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 4px;
+  color: var(--tx);
+  text-decoration: none;
+  border-radius: 6px;
+}
+.tracks a:hover { background: var(--tint); }
+.tracks .t-n {
+  font-weight: 700;
+  color: var(--a);
+  text-align: center;
+}
+.tracks .t-title { line-height: 1.35; }
+.tracks .t-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--mu);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tracks .dots { display: inline-flex; gap: 3px; }
+.tracks .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--a);
+}
+.tracks .dot.on { background: var(--a); }
+.tracks li.current a { background: var(--tint); font-weight: 700; }
+.tracks li.current .t-n::before { content: "\25B6"; font-size: 0.75rem; }
+.tracks li.current .t-n span { display: none; }
+
+.listen-foot {
+  font-size: 0.85rem;
+  color: var(--mu);
+  border-top: 1px solid var(--bd);
+  padding: 10px 0 6px;
+  margin: 0;
+}
+
+@media (max-width: 540px) {
+  .listen { padding: 14px 12px 6px; margin-left: -4px; margin-right: -4px; }
+  .tracks a { grid-template-columns: 1.6rem 1fr; }
+  .tracks .t-meta { grid-column: 2; }
+}

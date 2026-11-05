@@ -93,6 +93,7 @@ a.btn:hover{filter:brightness(1.08)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<link rel="stylesheet" href="luisteren.css">
 </head>
 <body>
 <main>
@@ -101,8 +102,18 @@ a.btn:hover{filter:brightness(1.08)}
 
 <h1>Socialisatie</h1>
 <p class="sub">Simpel uitgelegd. Hoe leer je hoe de samenleving werkt? Korte stukjes, bij elk idee een voorbeeld.</p>
+<section class="listen" id="luister">
+<h2>Luisteren</h2>
+<p class="listen-sub">3 korte blokken, samen ongeveer 7 minuten. Luister elk blok 3 keer, op verschillende dagen. De bolletjes tellen mee. Deze blokken komen uit audiodeel 3, Sociale structuren.</p>
+<ol class="tracks">
+<li><a href="Blok%203.2%20Cultuur%2C%20normen%20en%20waarden.mp3" data-dur="2:52">Cultuur, normen en waarden</a></li>
+<li><a href="Blok%203.4%20Socialisatie.mp3" data-dur="2:13">Socialisatie</a></li>
+<li><a href="Blok%203.6%20Instituties.mp3" data-dur="2:00">Instituties</a></li>
+</ol>
+<p class="listen-foot">Liever meelezen? <a href="Audio-studiegids%203.%20Sociale%20structuren.pdf">Open de audiogids als PDF</a>.</p>
+</section>
 <p class="navlabel">Spring naar een stuk:</p>
-<div class="navwrap"><div class="nav"><a href="#a">1 Cultuur</a><a href="#b">2 Culturen vergelijken</a><a href="#c">3 Socialisatie</a><a href="#d">4 Niveaus</a><a href="#e">5 Instituties</a><a href="#f">6 Tijd en ruimte</a><a href="#g">7 Vormen</a><a href="#h">8 Check</a></div></div>
+<div class="navwrap"><div class="nav"><a href="#luister">Luisteren</a><a href="#a">1 Cultuur</a><a href="#b">2 Culturen vergelijken</a><a href="#c">3 Socialisatie</a><a href="#d">4 Niveaus</a><a href="#e">5 Instituties</a><a href="#f">6 Tijd en ruimte</a><a href="#g">7 Vormen</a><a href="#h">8 Check</a></div></div>
 
 <section id="a">
 <h2>1. Wat is cultuur?</h2>
@@ -210,5 +221,6 @@ function upd(){
 window.addEventListener('scroll',upd,{passive:true});upd();
 })();
 </script>
+<script src="luisteren.js"></script>
 </body>
 </html>
